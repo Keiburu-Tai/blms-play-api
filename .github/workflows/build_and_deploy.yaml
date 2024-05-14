@@ -52,9 +52,9 @@ jobs:
 
       - name: Update Kubernetes Manifests
         env:
-          IMAGE_TAG: blms-play-api${{ github.run_number }}
+          IMAGE_TAG: ${{ github.run_number }}
         run: |
-          sed -i 's|image:.*|image: minjuncho/${{ env.IMAGE_TAG }}|' service/blms-play-api/blms-play-api.yaml
+          sed -i 's|image:.*|image: minjuncho/blms-play-api:${{ env.IMAGE_TAG }}|' service/blms-play-api/blms-play-api.yaml
 
       - name: commit and push
         run: |
