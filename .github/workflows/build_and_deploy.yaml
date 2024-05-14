@@ -11,7 +11,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     outputs:
-      IMAGE_TAG: ${{ github.run_number }}
+      IMAGE_TAG: blms-play-api${{ github.run_number }}
 
     steps:
       - name: Check out code
