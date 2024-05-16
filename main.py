@@ -3,11 +3,11 @@ import time
 import pygame
 import tempfile
 import multiprocessing
-from fastapi import FastAPI, UploadFile, HTTPException
+from fastapi import FastAPI, UploadFile, HTTPException, APIRouter
 from fastapi.responses import JSONResponse, FileResponse
 
 app = FastAPI()
-
+router = APIRouter()
 # Pygame 초기화 함수
 def init_pygame():
     pygame.init()
@@ -44,11 +44,11 @@ def create_play_midi_endpoint(name):
 # 엔드포인트 생성
 create_play_midi_endpoint("piano")
 create_play_midi_endpoint("guitar")
-
 app.include_router(router, prefix="/api")
-
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
 
 
